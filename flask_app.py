@@ -31,8 +31,8 @@ def adder_page():
                 <p>Ask ELOZZA a question:</p>
                 <form method="post" action=".">
                     <div class="row" style="width: 100%">
-                        <input name="question" id="question" style="width: 90%"/>
-                        <input type="submit" value="Ask"/>
+                        <input name="question" id="question" />
+                        <input type="submit" value="Ask" id="ask" />
                     </div>
                     <p>{'<br><br>'.join(session["dialogue"])}</p>
                 </form>

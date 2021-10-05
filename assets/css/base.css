@@ -1,7 +1,22 @@
 body {
   background-color: lightblue;
-  max-width: 500px;
+  max-width: 80%;
   margin: auto;
   text-align: center;
   padding: 20px;
+  font-size: 1vw;
+}
+
+input[type="text"] {
+  font-size: 1vw;
+}
+
+#question {
+  width: 80%;
+  max-width: 300px
+}
+
+#ask {
+  width: 15%;
+  max-width: 75px
 }
