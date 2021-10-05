@@ -1,4 +1,4 @@
-# jpnum
+# ELOZZA
 
 ELOZZA is a question-answering chatbot inspired by [ELIZA](https://en.wikipedia.org/wiki/ELIZA).
 
