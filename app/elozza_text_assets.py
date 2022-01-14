@@ -7,7 +7,7 @@ EEEEEE  LLLLLL    OOOO    ZZZZZZ  ZZZZZZ  AA   AA
 """
 
 blurb = """
-Elozza can understand simple 'what', 'where', 'who', 'when' and 'which' questions
+ELOZZA can understand simple 'what', 'where', 'who', 'when' and 'which' questions
 with 'is' or auxiliary 'do'/'does'.<br>
 Here are some ideas to get you started: 'Where's my car?', 'What does a linguist
 do?', 'When do the clocks go back?'<br>
