@@ -1,12 +1,14 @@
-
 from flask import Flask, request, session
-from elozza import elozza_response
+
 import elozza_text_assets
+from elozza import elozza_response
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
 app.config["SECRET_KEY"] = "wepoifjeaoiferh"
 
+
+# ====================
 @app.route("/", methods=["GET", "POST"])
 def adder_page():
     # Set up session variable to store dialogue history
@@ -14,9 +16,11 @@ def adder_page():
         session["dialogue"] = []
     if request.method == "POST":
         question = str(request.form["question"])
-        # If the question field is not empty, add the question and response to the dialogue history
+        # If the question field is not empty, add the question and response
+        # to the dialogue history
         if question:
-            session["dialogue"].append(f'YOU: {question}<br>ELOZZA: {elozza_response(question)}')
+            session["dialogue"].append(f'YOU: {question}<br>' +
+                                       f'ELOZZA: {elozza_response(question)}')
             if len(session["dialogue"]) > 5:
                 session["dialogue"] = session["dialogue"][-5:]
             session.modified = True

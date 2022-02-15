@@ -17,13 +17,16 @@ questions = [
     "Where do the ainu live?",
     "Could you please tell me the way to Tipperary?"
 ]
-    
+
+
+# ====================
 def main():
     """Print ELOZZA's responses to some test questions"""
-    
+
     for q in questions:
         print(f'{q} -> {elozza_response(q)}')
 
 
+# ====================
 if __name__ == '__main__':
     main()

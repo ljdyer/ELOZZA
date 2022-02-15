@@ -46,6 +46,7 @@ AMBIGUOUS_ANSWERS = [
 ]
 
 
+# ====================
 def preprocess(input: str) -> str:
     """Carry out preprocessing on user input"""
 
@@ -61,6 +62,7 @@ def preprocess(input: str) -> str:
     return output
 
 
+# ====================
 def respond(input: str) -> str:
     """Apply question and response regexes to preprocessed user input"""
 
@@ -74,6 +76,7 @@ def respond(input: str) -> str:
     return output[0].upper() + output[1:]
 
 
+# ====================
 def elozza_response(input: str) -> str:
     """Get ELOZZA's response to the user's input"""
 
@@ -82,9 +85,10 @@ def elozza_response(input: str) -> str:
     return output
 
 
+# ====================
 def main():
     """Have a conversation with ELOZZA.
-    
+
     ELOZZA responds to user questions until the user types 'quit'"""
 
     user_input = ''
@@ -96,5 +100,6 @@ def main():
             print(elozza_response(user_input))
 
 
+# ====================
 if __name__ == '__main__':
     main()
