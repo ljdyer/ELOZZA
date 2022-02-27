@@ -1,0 +1,43 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" link href="/static/css/base.css">
+    </head>
+
+    <body onLoad="document.getElementById('question').focus();">
+<pre>
+EEEEEE  LL      OOOO   ZZZZZZ  ZZZZZZ    AAA  
+EE      LL     OO  OO     ZZ      ZZ    AA AA 
+EEEEEE  LL    OO    OO   ZZ      ZZ    AAAAAAA
+EE      LL     OO  OO   ZZ      ZZ     AA   AA
+EEEEEE  LLLLLL  OOOO   ZZZZZZ  ZZZZZZ  AA   AA
+</pre>
+        <p>
+            ELOZZA can understand simple 'what', 'where', 'who', 'when' and 'which' questions with 'is' or auxiliary 'do'/'does'.<br>
+            Here are some ideas to get you started: 'Where's my car?', 'What does a linguist do?', 'When do the clocks go back?'<br>
+            Your last 5 questions will be displayed below.
+        </p>
+        <p>
+            Ask ELOZZA a question:
+        </p>
+        <form method="post" action=".">
+            <div class="row" style="width: 100%">
+                <input name="question" id="question" />
+                <input type="submit" value="Ask" id="ask" />
+            </div>
+            <p>
+                {% for q_and_a in dialogue %}
+                <p>
+                {{q_and_a.question}}<br>{{q_and_a.answer}}
+                </p>
+                {% endfor %}
+            </p>
+        </form>
+    </body>
+
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+</html>

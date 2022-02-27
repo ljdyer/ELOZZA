@@ -1,3 +1,7 @@
+pre {
+  white-space: pre-wrap;
+}
+
 body {
   background-color: lightblue;
   max-width: 80%;
@@ -13,10 +17,20 @@ input[type="text"] {
 
 #question {
   width: 80%;
-  max-width: 300px
+  max-width: 400px
 }
 
 #ask {
   width: 15%;
-  max-width: 75px
+  max-width: 80px
+}
+
+@media screen and (max-width: 600px) {
+  #question {
+    width: 80%;
+  }
+
+  #ask {
+    width: 15%;
+  }
 }

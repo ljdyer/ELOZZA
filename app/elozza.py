@@ -3,37 +3,74 @@ from random import choice
 
 PREPROCESS_SUBS = [
     # Pairs of strings to substitute in preprocessing
+    ('are you', 'I am'),
+    ('am I', 'you are'),
     ('my', 'your'),
     ('I', 'you'),
 ]
 
 QUESTION_RESPONSE_REGEXES = [
     # Where questions
-    (r'^where(?:\'s|\sis)\s(.+)$', r'\1 is wherever you put it.'),
-    (r'^where\sdo\s(.+)$', r"If I knew where \1 I'd be there already."),
-    (r'^where\sdoes\s(.+)$', r"If I knew where \1s I'd be there already."),
+    (
+        r'^where(?:\'s|\sis)\s(.+)$',
+        r'\1 is wherever you put it.'
+    ),
+    (
+        r'^where\sdo\s(.+)$',
+        r"If I knew where \1 I'd be there already."
+    ),
+    (
+        r'^where\sdoes\s(.+)$',
+        r"If I knew where \1s I'd be there already."
+    ),
     # What questions
-    (r'^what(?:\'s|\sis)\smy name?', r'My name is ELOZZA.'),
-    (r'^what(?:\'s|\sis)\s(.+)$', r'\1 is a social construct.'),
-    (r'^what\sdo\s(.+)\s(.+)$',
-     r"Perhaps you should be asking what \1 DON'T \2."),
-    (r'^what\sdoes\s(.+)\s(.+)$',
-     r"Perhaps you should be asking what \1 DOESN'T \2."),
+    (
+        r'^what(?:\'s|\sis)\smy name?',
+        r'My name is ELOZZA.'
+    ),
+    (
+        r'^what(?:\'s|\sis)\s(.+)$',
+        r'\1 is a social construct.'
+    ),
+    (
+        r'^what\sdo\s(.+)\s(.+)$',
+        r"Perhaps you should be asking what \1 DON'T \2."
+    ),
+    (
+        r'^what\sdoes\s(.+)\s(.+)$',
+        r"Perhaps you should be asking what \1 DOESN'T \2."
+    ),
     # Who questions
-    (r'^who(?:\'s|\sis)\s(.+)$',
-     r'\1 is the thing that looks back when \1 looks in the mirror.'),
-    (r'^who\s(.+)$',
-     r'Does it really matter who \1? What matters is that someone \1.'),
+    (
+        r'^who(?:\'s|\sis)\s(.+)$',
+        r'\1 is the thing that looks back when \1 looks in the mirror.'
+    ),
+    (
+        r'^who\s(?:do\s)?(.+)$',
+        r'If you want want to know who \1, start by asking yourself who \1 not.'
+    ),
     # Which questions
-    (r'^which\s(.*)(?:\'s|\sis)\s(.+)$',
-     r'Whichever \1 you think is \2 is \2.'),
+    (
+        r'^which\s(.*)(?:\'s|\sis)\s(.+)$',
+        r'Whichever \1 you think is \2 is \2.'
+    ),
     # When questions
-    (r'^when(?:\'s|\sis)\s(.+)$',
-     r'\1 is some time in the past, the present, or the future.'),
-    (r'^when\sdo\s(.+)$',
-     r"\1 when it's the right time to do so."),
-    (r'^when\sdo\s(.+)$',
-     r"\1s when it's the right time to do so."),
+    (
+        r'^when(?:\'s|\sis)\s(.+)$',
+        r'\1 is some time in the past, the present, or the future.'
+    ),
+    (
+        r'^when\sdo\s(.+)$',
+        r"\1 when it's the right time to do so."
+    ),
+    (
+        r'^when\sdo\s(.+)$',
+        r"\1 when it's the right time to do so."
+    ),
+    (
+        r'^when\sdoes\s(.+)$',
+        r"\1s when it's the right time to do so."
+    ),
 ]
 
 AMBIGUOUS_ANSWERS = [
@@ -53,7 +90,7 @@ def preprocess(input: str) -> str:
     output = input
     # String substitutions to deal with first/third person
     for word1, word2 in PREPROCESS_SUBS:
-        # @ marks used to prevent words being swapped then swapped back again
+        # _ marks used to prevent words being swapped then swapped back again
         output = re.sub(fr'\b{word1}\b', f'_{word2}_', output)
         output = re.sub(fr'\b{word2}\b', f'_{word1}_', output)
     output = re.sub(r'_', '', output)
